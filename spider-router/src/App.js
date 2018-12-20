@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { geolocated } from 'react-geolocated';
+// import Mappers from './components/Mappers';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      myLocale: '',
+      // coords: this.props.coords,
       isLoading: true,
     };
   }
@@ -19,7 +20,6 @@ class App extends Component {
       <div>Getting the location data&hellip; </div>
     ) : (
       <table>
-        {' '}
         <tbody>
           <tr>
             <td>latitude: </td>
@@ -32,6 +32,11 @@ class App extends Component {
         </tbody>
       </table>
     );
+    // return (
+    //   <div>
+    //     <Mappers coords={this.coords} />
+    //   </div>
+    // );
   }
 }
 
