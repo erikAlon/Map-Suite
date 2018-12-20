@@ -14,7 +14,7 @@
 
 | Cool Rank  | Tool Name        | Tool Feature                                                  |
 | ---------- | ---------------- | ------------------------------------------------------------- |
-| \*\*\*\*\* | TransStar        | See TransStar alerts in real time                             |
+| \*\*\*\*\* | TransStar        | See TranStar alerts graphically in real time                  |
 | \*\*\*\*   | Driver proximity | See other drivers proximity to your location anonymously      |
 | \*\*\*     | Airplane tracker | Airplane landing tracker                                      |
 | \*\*\*     | Pit stop         | Router to 24 hour facilities                                  |
@@ -34,12 +34,6 @@
 - Email author is: TrafficAlert@HoustonTranStar.org
 - Email signature links
 - If text is within string length count, the footer contains an unsubscribe link
-
-### Workflow
-
-1. Raw mail to json
-2. Process json into map plotting details
-3. Refresh map with details
 
 # Developer Questions:
 
@@ -65,9 +59,11 @@ Answer:
 
 Answer:
 
-1. Set up a gmail account for this service.
-2. Use the gmail api to pull each message payload from TranStar's alert system
-3. Process the alert payload on the app
+### Workflow
+
+1. Raw mail to json
+2. Process json into map plotting details
+3. Refresh map with details
 
 The Gmail API states that it can read/ search messages
 
