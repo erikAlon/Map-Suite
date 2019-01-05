@@ -13,7 +13,9 @@ const TOKEN_PATH = 'token.json';
 fs.readFile('credentials.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
   // Authorize a client with credentials, then call the Gmail API.
-  authorize(JSON.parse(content), listMsg);
+  setInterval(function() {
+    authorize(JSON.parse(content), listMsg);
+  }, 5000);
 });
 
 /**
@@ -66,33 +68,6 @@ function getNewToken(oAuth2Client, callback) {
 }
 
 /**
- * Lists the labels in the user's account.
- *
- * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
- */
-function listLabels(auth) {
-  const gmail = google.gmail({ version: 'v1', auth });
-  gmail.users.labels.list(
-    {
-      userId: 'me',
-    },
-    (err, res) => {
-      if (err) return console.log('The API returned an error: ' + err);
-      const labels = res.data.labels;
-      if (labels.length) {
-        console.log(labels);
-        console.log('Labels:');
-        labels.forEach((label) => {
-          console.log(`- ${label.name}`);
-        });
-      } else {
-        console.log('No labels found.');
-      }
-    }
-  );
-}
-
-/**
  * Listing messages from user's account.
  */
 function listMsg(auth) {
@@ -113,7 +88,7 @@ function listMsg(auth) {
           },
           (err, res) => {
             if (err) return console.log('The get API returned an error: ' + err);
-            console.log(res.data.snippet);
+            console.log(res.data.snippet + '\n');
           }
         );
       } else {
@@ -121,36 +96,4 @@ function listMsg(auth) {
       }
     }
   );
-}
-
-/**
- * Retrieve Messages in user's mailbox matching query.
- *
- * @param  {String} userId User's email address. The special value 'me'
- * can be used to indicate the authenticated user.
- * @param  {String} query String used to filter the Messages listed.
- * @param  {Function} callback Function to call when the request is complete.
- */
-function listMessages(userId, query, callback) {
-  var getPageOfMessages = function(request, result) {
-    request.execute(function(resp) {
-      result = result.concat(resp.messages);
-      var nextPageToken = resp.nextPageToken;
-      if (nextPageToken) {
-        request = gapi.client.gmail.users.messages.list({
-          userId: userId,
-          pageToken: nextPageToken,
-          q: query,
-        });
-        getPageOfMessages(request, result);
-      } else {
-        callback(result);
-      }
-    });
-  };
-  var initialRequest = gapi.client.gmail.users.messages.list({
-    userId: userId,
-    q: query,
-  });
-  getPageOfMessages(initialRequest, []);
 }

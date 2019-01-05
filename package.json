@@ -1,0 +1,24 @@
+{
+  "name": "spider-router",
+  "version": "1.0.0",
+  "description": "A map suite, see overview at: https://portfolio-dantedeleon.netlify.com/blogroadmap#route",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erikAlon/X02.git"
+  },
+  "author": "Erik Alonso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erikAlon/X02/issues"
+  },
+  "homepage": "https://github.com/erikAlon/X02#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4"
+  }
+}
