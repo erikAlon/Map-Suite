@@ -1,4 +1,4 @@
-# Developer Questions:
+# Developer Questions
 
 ## Transtar incident alerts are in the following format:
 

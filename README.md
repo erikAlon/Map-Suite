@@ -3,14 +3,14 @@
 | Technology | Purpose                       |
 | ---------- | ----------------------------- |
 | GraphQL    | Retrieve exact data as needed |
-| Apollo     | 
+| Apollo     |
 | Express    |
 | Node.js    |
 | React      |
 | Redux      |
 | MongoDB    |
 
-# App Features:
+# App Features
 
 | Cool Rank  | Tool Name        | Tool Feature                                                  | Graphical Presentation             |
 | ---------- | ---------------- | ------------------------------------------------------------- | ---------------------------------- |
@@ -23,33 +23,20 @@
 | \*         | Crime area       | See crime rate as a geofenced location                        | A color code                       |
 | \*         | Second hand      | Have seconds clock running in app or android phone background | Seconds display                    |
 
-# Todo:
+## Notes
 
-(12.21.2018)
-Find a map that can..
-
-- set/ delete markers
-- style markers
-- display traffic
-- display weather radar
-- route
-
-Google Maps
-
-# Notes:
-
-- 86 400 api calls
-- divide by 5 seconds 17 280
+- 86 400 api calls (estimate messages per day)
+- divide by 5 seconds, 17 280
 - 2 types daily, 34 560
 - 7 days, 241 920
-- 52 weeks 12 579 840
+- 52 weeks, 12 579 840
 
-- 29.06 m/sec on highway (about 100 kmh)
+- 29.06 meters/second on highway (about 100 km/h)
 
-- 1440 minutes per day
-- 288 intervals of 5 minutes per day
+- 1440 minutes/ day
+- 288 intervals of 5 minutes/ day
 
->TranStar
+> TranStar
 
 - Uses sms client to forward texts with information payload. This information is formatted below.
 - Max hourly messages I've seen were 16.. 16 texts \* 24 hours \* 30 days < 12, 000
@@ -59,6 +46,12 @@ Google Maps
 - Email signature links
 - If text is within string length count, the footer contains an unsubscribe link
 
->Pit stop
+> Pit stop
 
-Markers include: restaraunts, gyms, open gas stations, convenience stores, home
+Markers include:
+
+- restaraunts
+- gyms
+- open gas stations
+- convenience stores
+- home
