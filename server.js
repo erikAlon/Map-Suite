@@ -9,7 +9,7 @@ server.use(cors());
 transtar();
 
 /**
- * Spider-Router API usage here
+ * Map-Suite API usage here
  * app.use(...);
  */
 
