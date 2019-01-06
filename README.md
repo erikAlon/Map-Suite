@@ -3,8 +3,7 @@
 - Render Map
 - Display driver lan/ lon coordinates
 
-  > **TranStar**
-
+  > **TranStar**  
   > Features needed from map API for this tool:
   >
   > - Add custom markers to map with coordinates
@@ -27,8 +26,7 @@
     - Get other information from message and apply to this marker
     - Render marker on map
 
-    > **Pit Stop**
-
+    > **Pit Stop**  
     > Features needed from map API for this tool:
     >
     > - Add custom markers to map with coordinates
@@ -36,8 +34,7 @@
 
     > **Weather Radar**
 
-    > **Traffic**
-
+    > **Traffic**  
     > Features needed from map API for this tool:
     >
     > - Display levels of traffic
