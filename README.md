@@ -7,6 +7,7 @@
   > Features needed from map API for this tool:
   >
   > - Add custom markers to map with coordinates
+  >   - Geocoding API?
 
 1.  - Create an event listener to make a marker for every new message
       - Log when this event occurs
@@ -30,7 +31,9 @@
     > Features needed from map API for this tool:
     >
     > - Add custom markers to map with coordinates
+    >   - Geocoding API?
     > - Routing
+    >   - Directions API?
 
     > **Weather Radar**
 
@@ -38,6 +41,7 @@
     > Features needed from map API for this tool:
     >
     > - Display levels of traffic
+    >   - ??? API?
 
 # Stretch goals
 
