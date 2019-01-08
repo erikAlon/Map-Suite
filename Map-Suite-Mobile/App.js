@@ -2,15 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 export default class FlexDimensionsBasics extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-
-  //   }
-
-  //   setInterval(, 1000)
-  // }
-
   render() {
     return (
       // Try removing the `flex: 1` on the parent View.
