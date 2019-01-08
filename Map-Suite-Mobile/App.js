@@ -1,33 +1,32 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-class Blink extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isShowingText: true,
-    };
-    setInterval(
-      () => this.setState((previousState) => ({ isShowingText: !previousState.isShowingText })),
-      1000
-    );
-  }
+export default class FlexDimensionsBasics extends Component {
+  // constructor() {
+  //   super();
+  //   this.state = {
 
-  render() {
-    if (!this.state.isShowingText) {
-      return null;
-    }
+  //   }
 
-    return <Text>{this.props.text}</Text>;
-  }
-}
+  //   setInterval(, 1000)
+  // }
 
-export default class BlinkApp extends Component {
   render() {
     return (
-      <View>
-        <Blink text="I love to blink" />
-        <Blink text="This is more text for blinky" />
+      // Try removing the `flex: 1` on the parent View.
+      // The parent will not have dimensions, so the children can't expand.
+      // What if you add `height: 300` instead of `flex: 1`?
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-evenly',
+        }}
+      >
+        <View class="rotated" style={styles.container} />
+        <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
+        <View style={styles.container} />
       </View>
     );
   }
@@ -35,8 +34,8 @@ export default class BlinkApp extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: 50,
+    height: 50,
+    backgroundColor: 'black',
   },
 });
