@@ -2,9 +2,6 @@
 import axios from 'axios';
 import yelpAPI from '../../config.js';
 
-// const yelpAPI =
-//   'FO7fUitdYmMUgbdl1u87IOdFUf8duKY6YT_VmJh8PfYJ6i9Mzxmk1JyZ1ssVj-aEXHOS9EZz805lviTimFOZdJJ-jXZfK6Irt8eEzhmpy7JouPPl4T85uUrCja43XHYx';
-
 const api = axios.create({
   baseURL: 'https://api.yelp.com/v3',
   headers: {
