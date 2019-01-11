@@ -1,32 +1,65 @@
-import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React from 'react';
+import { Text, View, SafeAreaView } from 'react-native';
+import { Location, Permissions } from 'expo';
+import Map from './app/components/Map';
+import YelpService from './app/services/yelp';
 
-export default class FlexDimensionsBasics extends Component {
+const deltas = {
+  latitudeDelta: 0.0005,
+  longitudeDelta: 0.0005,
+};
+
+export default class App extends React.Component {
+  state = {
+    isLoading: true,
+    region: null,
+    coffeeShops: [],
+  };
+
+  componentWillMount() {
+    this.getLocationAsync();
+  }
+
+  getCoffeeShops = async () => {
+    const { latitude, longitude } = this.state.region;
+    const userLocation = { latitude, longitude };
+
+    const coffeeShops = await YelpService.getCoffeeShops(userLocation);
+
+    this.setState({ isLoading: false, coffeeShops });
+  };
+
+  getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+
+    if (status !== 'granted') {
+      this.setState({
+        errorMessage: 'Permission to acess location was denied',
+      });
+    }
+
+    let location = await Location.getCurrentPositionAsync({});
+    const region = {
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude,
+      ...deltas,
+    };
+
+    await this.setState({ region });
+
+    await this.getCoffeeShops();
+  };
+
   render() {
-    return (
-      // Try removing the `flex: 1` on the parent View.
-      // The parent will not have dimensions, so the children can't expand.
-      // What if you add `height: 300` instead of `flex: 1`?
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-evenly',
-        }}
-      >
-        <View class="rotated" style={styles.container} />
-        <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
-        <View style={styles.container} />
-      </View>
-    );
+    if (this.state.isLoading) {
+      return (
+        <View>
+          <Text>Loading...</Text>
+        </View>
+      );
+    }
+
+    const { region, coffeeShops } = this.state;
+    return <Map region={region} places={coffeeShops} />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    width: 50,
-    height: 50,
-    backgroundColor: 'black',
-  },
-});
