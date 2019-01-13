@@ -9,46 +9,25 @@ const api = axios.create({
   },
 });
 
-// const getCoffeeShops = (userLocation) => {
-//   return api
-//     .get('/businesses/search', {
-//       params: {
-//         limit: 10,
-//         categories: 'coffee, coffeeroasteries, coffeeshops',
-//         ...userLocation,
-//       },
-//     })
-//     .then((res) => {
-//       res.data.businesses.map((business) => {
-//         return {
-//           name: business.name,
-//           coords: business.coordinates,
-//         };
-//       });
-//     })
-//     .catch((error) => console.log(error));
-// };
-
 const getCoffeeShops = (userLocation) => {
-  return [
-    {
-      name: 'fake name',
-      coords: {
-        latitude: 29.70405,
-        longitude: -95.5879,
+  return api
+    .get('/businesses/search', {
+      params: {
+        limit: 10,
+        categories: 'coffee,coffeeroasteries,coffeeshops',
+        ...userLocation,
       },
-    },
-    {
-      name: 'fake name2',
-      coords: {
-        latitude: 30.70415,
-        longitude: -96.5889,
-      },
-    },
-  ];
+    })
+    .then((res) =>
+      res.data.businesses.map((business) => {
+        return {
+          name: business.name,
+          coords: business.coordinates,
+        };
+      })
+    )
+    .catch((error) => console.error(error));
 };
-
-console.log(`***\nThis is my key\n***\n\n${yelpAPI.yelpAPI}\n\n`);
 
 export default {
   getCoffeeShops,

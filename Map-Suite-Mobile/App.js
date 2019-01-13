@@ -22,6 +22,7 @@ export default class App extends React.Component {
 
   getCoffeeShops = async () => {
     const { latitude, longitude } = this.state.region;
+    console.log('in App, in getCoffeeShops ==> ' + latitude);
     const userLocation = { latitude, longitude };
 
     const coffeeShops = await YelpService.getCoffeeShops(userLocation);
