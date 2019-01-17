@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import { Location, Permissions } from 'expo';
 import Map from './app/components/Map';
 import YelpService from './app/services/yelp';
+import axios from 'axios';
 
 const deltas = {
   latitudeDelta: 0.0005,
@@ -16,40 +17,45 @@ export default class App extends React.Component {
     coffeeShops: [],
   };
 
-  componentWillMount() {
-    this.getLocationAsync();
+  componentDidMount() {
+    axios.get('http://localhost:5001/apiTest').then((res) => {
+      console.log(res);
+    });
   }
 
-  getCoffeeShops = async () => {
-    const { latitude, longitude } = this.state.region;
-    console.log('in App, in getCoffeeShops ==> ' + latitude);
-    const userLocation = { latitude, longitude };
+  // componentWillMount() {
+  //   this.getLocationAsync();
+  // }
 
-    const coffeeShops = await YelpService.getCoffeeShops(userLocation);
+  // getCoffeeShops = async () => {
+  //   const { latitude, longitude } = this.state.region;
+  //   const userLocation = { latitude, longitude };
 
-    this.setState({ isLoading: false, coffeeShops });
-  };
+  //   // const coffeeShops = await YelpService.getCoffeeShops(userLocation);
 
-  getLocationAsync = async () => {
-    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+  //   this.setState({ isLoading: false, coffeeShops });
+  // };
 
-    if (status !== 'granted') {
-      this.setState({
-        errorMessage: 'Permission to acess location was denied',
-      });
-    }
+  // getLocationAsync = async () => {
+  //   let { status } = await Permissions.askAsync(Permissions.LOCATION);
 
-    let location = await Location.getCurrentPositionAsync({});
-    const region = {
-      latitude: location.coords.latitude,
-      longitude: location.coords.longitude,
-      ...deltas,
-    };
+  //   if (status !== 'granted') {
+  //     this.setState({
+  //       errorMessage: 'Permission to acess location was denied',
+  //     });
+  //   }
 
-    await this.setState({ region });
+  //   let location = await Location.getCurrentPositionAsync({});
+  //   const region = {
+  //     latitude: location.coords.latitude,
+  //     longitude: location.coords.longitude,
+  //     ...deltas,
+  //   };
 
-    await this.getCoffeeShops();
-  };
+  //   await this.setState({ region });
+
+  //   await this.getCoffeeShops();
+  // };
 
   render() {
     if (this.state.isLoading) {
@@ -60,7 +66,11 @@ export default class App extends React.Component {
       );
     }
 
-    const { region, coffeeShops } = this.state;
-    return <Map region={region} places={coffeeShops} />;
+    // const { region, coffeeShops } = this.state;
+    // return <Map region={region} places={coffeeShops} />;
   }
 }
+
+const styles = StyleSheet.create({
+  flex: 1,
+});
