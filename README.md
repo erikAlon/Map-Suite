@@ -60,28 +60,29 @@
 
 # Full stack
 
-| Technology           | Purpose                          |
-| -------------------- | -------------------------------- |
-| GraphQL              | Retrieve exact data as needed    |
-| Apollo               |                                  |
-| Express              | Implement server and api's       |
-| Node.js              | Write server logic in javascript |
-| React                | Frontend                         |
-| Redux                | State management to scale app    |
-| MongoDB              | Holds pit stop locations         |
-| _testing solution_   |                                  |
-| _deploying solution_ |                                  |
-| Stripe               | Payment processing               |
+| Technology         | Purpose                             |
+| ------------------ | ----------------------------------- |
+| GraphQL            | Retrieve exact data as needed       |
+| Apollo             |                                     |
+| Express            | Implement server and api's          |
+| Node.js            | Write server logic in javascript    |
+| React Native       | App development for ios and android |
+| React              | Frontend                            |
+| Redux              | State management to scale app       |
+| MongoDB            | Holds pit stop locations            |
+| _testing solution_ |                                     |
+| Firebase           | Server hosting                      |
+| Stripe             | Payment processing                  |
 
 # App Features
 
-| Cool Rank  | Tool Name        | Tool Feature                                                  | Graphical Presentation             |
-| ---------- | ---------------- | ------------------------------------------------------------- | ---------------------------------- |
-| \*\*\*\*\* | TranStar         | See TranStar alerts graphically in real time                  | Map                                |
-| \*\*\*\*   | Driver Proximity | See other drivers proximity to your location anonymously      | Quantity based on preset proximity |
-| \*\*\*     | Airplane Tracker | Airplane landing tracker                                      | Airplane button                    |
-| \*\*\*     | Pit Stop         | Router to 24 hour facilities                                  | Map                                |
-| \*\*       | Weather Radar    | Weather radar                                                 | Map                                |
-| \*\*       | Traffic          | See traffic in real time                                      | Map                                |
-| \*         | Crime Area       | See crime rate as a geofenced location                        | A color code                       |
-| \*         | Seconds Hand     | Have seconds clock running in app or android phone background | Seconds display                    |
+| Cool Rank | Tool Name        | Tool Feature                                                  | Graphical Presentation             |
+| --------- | ---------------- | ------------------------------------------------------------- | ---------------------------------- |
+| ★★★★★     | TranStar         | See TranStar alerts graphically in real time                  | Map                                |
+| ★★★★      | Driver Proximity | See other drivers proximity to your location anonymously      | Quantity based on preset proximity |
+| ★★★       | Airplane Tracker | Airplane landing tracker                                      | Airplane button                    |
+| ★★★       | Pit Stop         | Router to 24 hour facilities                                  | Map                                |
+| ★★        | Weather Radar    | Weather radar                                                 | Map                                |
+| ★★        | Traffic          | See traffic in real time                                      | Map                                |
+| ★         | Crime Area       | See crime rate as a geofenced location                        | A color code                       |
+| ★         | Seconds Hand     | Have seconds clock running in app or android phone background | Seconds display                    |
