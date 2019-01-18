@@ -133,7 +133,18 @@ transtar = () => {
 };
 //************************************************************************************************************ */
 
-transtar();
+// transtar();
+
+// Yelp interfacing with yelp-fusion
+const client = yelp.client(yelp_api_key);
+
+const searchRequest = {
+  term: 'coffee',
+  location: 'Houston',
+  limit: 5,
+};
+
+let coffeePlaces = [];
 
 // Yelp interfacing with yelp-fusion
 const client = yelp.client(yelp_api_key);
