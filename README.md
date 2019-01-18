@@ -43,7 +43,7 @@
     > - Display levels of traffic
     >   - ??? API?
 
-# Stretch goals
+# Stretch Goals
 
 - Overlay on Map
 
@@ -58,7 +58,7 @@
 - Driver chat and private message system
 - Acquire Uber/ Lyft pick and drop off data and implement map routing
 
-# Full stack
+# Full Stack
 
 | Technology         | Purpose                             |
 | ------------------ | ----------------------------------- |
