@@ -14,7 +14,8 @@ module.exports = transtar = () => {
   fs.readFile('credentials.json', (err, content) => {
     if (err) return console.log('Error loading client secret file:', err);
     // Authorize a client with credentials, then call the Gmail API.
-    setInterval(function() {
+    // Here....
+    setInterval(() => {
       authorize(JSON.parse(content), listMsg);
     }, 5000);
   });
@@ -73,6 +74,7 @@ module.exports = transtar = () => {
    */
   function listMsg(auth) {
     const gmail = google.gmail({ version: 'v1', auth });
+
     gmail.users.messages.list(
       {
         userId: 'me',
@@ -80,7 +82,9 @@ module.exports = transtar = () => {
       },
       (err, res) => {
         if (err) return console.log('The API returned an error: ' + err);
+
         const msg = res.data.messages;
+
         if (msg.length) {
           gmail.users.messages.get(
             {
@@ -89,7 +93,9 @@ module.exports = transtar = () => {
             },
             (err, res) => {
               if (err) return console.log('The get API returned an error: ' + err);
-              console.log(res.data.snippet + '\n');
+
+              // Message being broadcast to terminal here
+              MESSAGE = res.data.snippet;
             }
           );
         } else {

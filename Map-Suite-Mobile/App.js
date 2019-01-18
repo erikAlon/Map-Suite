@@ -1,32 +1,30 @@
-import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
-export default class FlexDimensionsBasics extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
+export default class App extends React.Component {
+  state = {
+    alert: '',
+  };
 
-  //   }
-
-  //   setInterval(, 1000)
-  // }
+  componentWillMount() {
+    fetch('https://map-suite-mobile.firebaseapp.com/transtar')
+      .then((res) => {
+        return res.json();
+      })
+      .then((resJson) => {
+        this.setState({
+          alert: resJson.message,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   render() {
     return (
-      // Try removing the `flex: 1` on the parent View.
-      // The parent will not have dimensions, so the children can't expand.
-      // What if you add `height: 300` instead of `flex: 1`?
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-evenly',
-        }}
-      >
-        <View class="rotated" style={styles.container} />
-        <View style={{ width: 50, height: 50, backgroundColor: 'red' }} />
-        <View style={styles.container} />
+      <View style={styles.container}>
+        <Text>{this.state.alert}</Text>
       </View>
     );
   }
@@ -34,8 +32,8 @@ export default class FlexDimensionsBasics extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    width: 50,
-    height: 50,
-    backgroundColor: 'black',
+    flex: 1,
+    justifyContent: 'center',
+    color: 'green',
   },
 });
