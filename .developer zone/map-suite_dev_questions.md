@@ -2,6 +2,7 @@
 
 - Medium
 - Stack Overflow
+- https://facebook.github.io/react-native/showcase
 
 ## Notes
 
@@ -15,6 +16,8 @@
 
 - 1440 minutes/ day
 - 288 intervals of 5 minutes/ day
+
+- app will have < 10 screens or layouts to display its stuff
 
 > TranStar
 

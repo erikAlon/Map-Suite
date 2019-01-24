@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import { Location, Permissions } from 'expo';
 import Map from './app/components/Map';
-import YelpService from './app/services/yelp';
+import YelpService from './app/services/deleteyelp';
 
 const deltas = {
   latitudeDelta: 0.0005,

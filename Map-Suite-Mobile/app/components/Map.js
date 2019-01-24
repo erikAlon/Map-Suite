@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { MapView } from 'expo';
 
-const Marker = MapView.Marker;
+// const Marker = MapView.Marker;
 
 export default class Map extends React.Component {
   renderMarkers() {

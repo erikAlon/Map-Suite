@@ -63,14 +63,14 @@
 | Technology         | Purpose                             |
 | ------------------ | ----------------------------------- |
 | GraphQL            | Retrieve exact data as needed       |
-| Apollo             |                                     |
+| Apollo             | Integrate GraphQL to React apps     |
 | Express            | Implement server and api's          |
 | Node.js            | Write server logic in javascript    |
 | React Native       | App development for ios and android |
 | React              | Frontend                            |
 | Redux              | State management to scale app       |
 | MongoDB            | Holds pit stop locations            |
-| _testing solution_ |                                     |
+| _testing solution_ | Test data retreival, user input     |
 | Firebase           | Server hosting                      |
 | Stripe             | Payment processing                  |
 
