@@ -1,24 +1,33 @@
 # Goals
 
-- Render Map
-- Display driver lan/ lon coordinates
+0. ~~Set up Redux~~
 
-  > **TranStar**  
-  > Features needed from map API for this tool:
-  >
-  > - Add custom markers to map with coordinates
-  >   - Geocoding API?
+---
 
-1.  - Create an event listener to make a marker for every new message
-      - Log when this event occurs
+1. ~~Render Map~~
+
+---
+
+2. Display driver lan/ lon coordinates
+
+---
+
+> **TranStar**  
+> Features needed from map API for this tool:
+>
+> - Add custom markers to map with coordinates
+>   - Geocoding API?
+
+3.  - Create an event listener to make a marker for every new message
+      - ~~Log when this event occurs~~
 
     ***
 
-2.  - Create javascript logic to parse through message
+4.  - Create javascript logic to parse through message
 
     ***
 
-3.  - Create a new marker on map if message is "verified"
+5.  - Create a new marker on map if message is "verified"
     - Delete a marker on map if message is "cleared"
     - Get incident freeway and exit street
     - Compare freeway name to database freeway names to reframe the string
@@ -27,36 +36,51 @@
     - Get other information from message and apply to this marker
     - Render marker on map
 
-    > **Pit Stop**  
-    > Features needed from map API for this tool:
-    >
-    > - Add custom markers to map with coordinates
-    >   - Geocoding API?
-    > - Routing
-    >   - Directions API?
+---
 
-    > **Weather Radar**
+> **Hunter**
+> Features needed from map API for this tool:
+>
+> - Add custom markers to map with coordinates
 
-    > **Traffic**  
-    > Features needed from map API for this tool:
-    >
-    > - Display levels of traffic
-    >   - ??? API?
+6.  - Search for assorted list of popular bars
+    - Perform web scrape on googlemaps website
+    - Extract percentage of "busy" labeled DOM elements in real time.
+    - Simulate blob on map according to real time level of population
+
+---
+
+> **Pit Stop**  
+> Features needed from map API for this tool:
+>
+> - Add custom markers to map with coordinates
+>   - Geocoding API?
+> - Routing
+>   - Directions API?
+
+> **Weather Radar**
+
+> **Traffic**
+> Features needed from map API for this tool:
+>
+> - Display levels of traffic
+>   - ??? API?
 
 # Stretch Goals
 
 - Overlay on Map
 
-  > **Driver Proximity**
+- > **Driver Proximity**
 
-  > **Airplane Tracker**
+- > **Airplane Tracker**
 
-  > **Crime Area**
+- > **Crime Area**
 
-  > **Seconds Hand**
+- > **Seconds Hand**
 
 - Driver chat and private message system
-- Acquire Uber/ Lyft pick and drop off data and implement map routing
+
+- _Referral program_
 
 # Full Stack
 
@@ -78,6 +102,7 @@
 
 | Cool Rank | Tool Name        | Tool Feature                                                  | Graphical Presentation             |
 | --------- | ---------------- | ------------------------------------------------------------- | ---------------------------------- |
+| ★★★★★     | Hunter           | Track city population in real time                            | Map                                |
 | ★★★★★     | TranStar         | See TranStar alerts graphically in real time                  | Map                                |
 | ★★★★      | Driver Proximity | See other drivers proximity to your location anonymously      | Quantity based on preset proximity |
 | ★★★       | Airplane Tracker | Airplane landing tracker                                      | Airplane button                    |

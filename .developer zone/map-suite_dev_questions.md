@@ -1,10 +1,11 @@
-### What have I visited?
+# What have I visited?
 
 - Medium
+- Technology Documentation
 - Stack Overflow
 - https://facebook.github.io/react-native/showcase
 
-## Notes
+# Notes
 
 - 86 400 api calls (estimate messages per day)
 - divide by 5 seconds, 17 280
@@ -56,7 +57,7 @@ Markers include:
 
 Answer:
 
-### Workflow
+The Workflow:
 
 1. Raw mail to json
 2. Process json into map plotting details
@@ -111,3 +112,11 @@ Answer:
 - Seconds hand
 
 Answer:
+
+# Monetary gain from app
+
+| Model                | Description                                           | Beneficiary     | Benefit                        |
+| -------------------- | ----------------------------------------------------- | --------------- | ------------------------------ |
+| Fremium Subscription | Linked to either Google/ Facebook/ E-mail account     | Developer       | 4.99                           |
+| Referral             | Users refer other people to app for monetary gain     | Developer/ User | New Subscription / Free month  |
+| NFC tipping          | Riders can tip drivers using NFC communication by app | User            | _Any specified amount by user_ |
