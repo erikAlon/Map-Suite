@@ -1,7 +1,10 @@
 import {
   FETCHING_ALERT,
   FETCHING_ALERT_SUCCESS,
-  FETCHING_TRAFFIC_FAILURE,
+  FETCHING_ALERT_FAILURE,
+  FETCHING_LOCATION,
+  FETCHING_LOCATION_SUCCESS,
+  FETCHING_LOCATION_FAILURE,
 } from '../actions/constants';
 
 const initialState = {
@@ -9,6 +12,10 @@ const initialState = {
   messageFetched: false,
   messageIsFetching: false,
   messageError: false,
+  coords: {},
+  coordsFetched: false,
+  coordsIsFetching: false,
+  coordsError: false,
 };
 
 export default function dataReducer(state = initialState, action) {
@@ -28,10 +35,31 @@ export default function dataReducer(state = initialState, action) {
         messageIsFetching: false,
       };
 
-    case FETCHING_TRAFFIC_FAILURE:
+    case FETCHING_ALERT_FAILURE:
       return {
         ...state,
         messageError: true,
+      };
+
+    case FETCHING_LOCATION:
+      return {
+        ...state,
+        coordsFetched: false,
+        coordsIsFetching: true,
+      };
+
+    case FETCHING_LOCATION_SUCCESS:
+      return {
+        ...state,
+        coords: action.coords,
+        coordsFetched: true,
+        coordsIsFetching: false,
+      };
+
+    case FETCHING_LOCATION_FAILURE:
+      return {
+        ...state,
+        coordsError: true,
       };
 
     default:

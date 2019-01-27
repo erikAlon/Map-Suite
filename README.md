@@ -8,7 +8,7 @@
 
 ---
 
-2. Display driver lan/ lon coordinates
+2. ~~Display driver lan/ lon coordinates while moving~~
 
 ---
 

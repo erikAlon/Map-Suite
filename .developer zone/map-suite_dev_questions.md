@@ -14,6 +14,7 @@
 - 52 weeks, 12 579 840
 
 - 29.06 meters/second on highway (about 100 km/h)
+- 1 meter in about 35 ms
 
 - 1440 minutes/ day
 - 288 intervals of 5 minutes/ day
