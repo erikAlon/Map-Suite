@@ -1,6 +1,6 @@
 import React from 'react';
 import { MapView } from 'expo';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchAlert, fetchLocation } from '../../actions/actions';
 import UserMarker from './UserMarker';
@@ -11,10 +11,13 @@ const chicago = {
 };
 
 const houston = {
-  latitude: 29.75431,
-  longitude: -95.366501,
-  latitudeDelta: 0.09,
-  longitudeDelta: 0.05,
+  latitude: 29.758276,
+  longitude: -95.365448,
+};
+
+const north = {
+  latitude: 84.888827,
+  longitude: 3.553687,
 };
 
 const delta = {
@@ -22,9 +25,8 @@ const delta = {
   longitudeDelta: 0.05,
 };
 
-let renders = 0;
-
 /******************************************************************************************************************************************************************************************** */
+
 class TrafficMap extends React.Component {
   constructor(props) {
     super(props);
@@ -41,7 +43,7 @@ class TrafficMap extends React.Component {
           this.props.coordsFetched ? { ...this.props.coords, ...delta } : { ...chicago, ...delta }
         }
       >
-        {/* <UserMarker /> */}
+        <UserMarker local={north} />
       </MapView>
     );
   }

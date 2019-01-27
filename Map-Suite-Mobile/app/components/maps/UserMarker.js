@@ -1,49 +1,26 @@
 import React from 'react';
-import { MapView, Location, Permissions } from 'expo';
+import { MapView } from 'expo';
 import { View, Text, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
 
-export default class UserMarker extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      errorMessage: '',
-      coords: {
-        longitude: -87.638717,
-        latitude: 41.881296,
-      },
-    };
-    this.getPosition();
-  }
-
-  getPosition = async () => {
-    let { status } = await Permissions.askAsync(Permissions.LOCATION);
-    if (status !== 'granted') {
-      this.setState({
-        errorMessage: 'Permission to access location was denied',
-      });
-    }
-
-    let watch = await Location.watchPositionAsync(
-      { accuracy: Location.Accuracy.BestForNavigation, timeInterval: 0 },
-      (location) => {
-        this.setState({
-          coords: { longitude: location.coords.longitude, latitude: location.coords.latitude },
-        });
-      }
-    );
-  };
-
+class UserMarker extends React.Component {
   render() {
-    if (this.state.errorMessage.length) {
-      console.log('Error in UserMarker: ', this.state.errorMessage);
-    }
     return (
       <View>
         <View style={styles.coords}>
-          <Text style={styles.text}>latitude: {this.state.coords.latitude}</Text>
-          <Text style={styles.text}>longitutde: {this.state.coords.longitude}</Text>
+          <Text style={styles.text}>
+            latitude: {this.props.coordsFetched ? this.props.coords.latitude : 0}
+          </Text>
+          <Text style={styles.text}>
+            longitutde: {this.props.coordsFetched ? this.props.coords.longitude : 0}
+          </Text>
         </View>
-        <MapView.Marker coordinate={this.state.coords} identifier="driver" pinColor="green" />
+
+        <MapView.Marker
+          coordinate={this.props.coordsFetched ? this.props.coords : this.props.local}
+          identifier="driver"
+          pinColor="green"
+        />
       </View>
     );
   }
@@ -60,3 +37,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'beige',
   },
 });
+
+const mapStateToProps = (state) => {
+  return {
+    coordsFetched: state.appData.coordsFetched,
+    coords: state.appData.coords,
+  };
+};
+
+export default connect(mapStateToProps)(UserMarker);
