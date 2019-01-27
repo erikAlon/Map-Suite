@@ -22,42 +22,25 @@ const delta = {
   longitudeDelta: 0.05,
 };
 
-let REFRESH_COUNT = 0;
+let renders = 0;
 
 /******************************************************************************************************************************************************************************************** */
 class TrafficMap extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      ...chicago,
-      ...delta,
-    };
-    this.props.fetchAlert();
+    this.state = {};
     this.props.fetchLocation();
-  }
-
-  componentDidMount() {
-    console.log('CDM fired');
-    this.setState({
-      latitude: this.props.coords.latitude,
-      longitude: this.props.coords.longitude,
-      ...delta,
-    });
+    this.props.fetchAlert();
   }
 
   render() {
-    console.log('My state in render: ', this.state, 'My props in render: ', this.props.coords);
-
-    // if (Object.keys(this.props.coords).length > 0 && REFRESH_COUNT < 1) {
-    //   REFRESH_COUNT++;
-    //   this.setState({
-    //     ...this.props.coords,
-    //     ...delta,
-    //   });
-    // }
-
     return (
-      <MapView style={styles.trafficMap} initialRegion={this.state}>
+      <MapView
+        style={styles.trafficMap}
+        region={
+          this.props.coordsFetched ? { ...this.props.coords, ...delta } : { ...chicago, ...delta }
+        }
+      >
         {/* <UserMarker /> */}
       </MapView>
     );
@@ -76,6 +59,7 @@ function mapStateToProps(state) {
   return {
     message: state.appData.message,
     coords: state.appData.coords,
+    coordsFetched: state.appData.coordsFetched,
   };
 }
 

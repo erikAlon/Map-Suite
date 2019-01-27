@@ -78,7 +78,6 @@ export function fetchLocation() {
       let watch = await Location.watchPositionAsync(
         { accuracy: Location.Accuracy.BestForNavigation, timeInterval: 0 },
         (location) => {
-          console.log('Location in actions fetchLocation(): ', location);
           dispatch(
             getLocationSuccess({
               longitude: location.coords.longitude,
