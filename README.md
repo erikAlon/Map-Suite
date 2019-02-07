@@ -16,14 +16,16 @@
 > Features needed from map API for this tool:
 >
 > - Add custom markers to map with coordinates
->   - Geocoding API?
+>   - Get coordinates from google maps api
+>   - Use predetermined array of freeway exits to drop marks here
+>     - Search for intersection from array of intersections and populate map
 
 3.  - Create an event listener to make a marker for every new message
       - ~~Log when this event occurs~~
 
     ***
 
-4.  - Create javascript logic to parse through message
+4.  - ~Create javascript logic to parse through message~
 
     ***
 
